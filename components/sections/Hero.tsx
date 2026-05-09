@@ -101,8 +101,12 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-heading font-bold leading-[1.1] tracking-tight">
-            Building AI-powered tools and{" "}
-            <span className="text-primary">engineering</span> the future.
+            {personal.headline.split("engineer").map((part, i, arr) => (
+              <span key={i}>
+                {part}
+                {i < arr.length - 1 && <span className="text-primary">engineer</span>}
+              </span>
+            ))}
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">

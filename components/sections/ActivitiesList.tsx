@@ -15,7 +15,8 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 2000;
+      // Faster duration for smaller values
+      const duration = value < 10 ? 1000 : 2000;
       const increment = end / (duration / 16);
       
       const timer = setInterval(() => {

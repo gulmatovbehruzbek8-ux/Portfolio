@@ -118,7 +118,10 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all hover:scale-105">
+            <button 
+              onClick={() => window.location.href = '/projects'}
+              className="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all hover:scale-105"
+            >
               View Projects
             </button>
             <a

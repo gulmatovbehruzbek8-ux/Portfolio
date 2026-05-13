@@ -18,21 +18,6 @@ export interface Activity {
 
 export const activities: Activity[] = [
   {
-    title: "Line Tracking Robot",
-    role: "Co-Developer (Hardware + Code)",
-    team: "Behruzbek & Islombek",
-    status: "Completed",
-    achievement: "🥇 3× Regional Olympiad Gold",
-    description: "A high-speed line-following robot engineered with 7 precision sensors for rapid, accurate path detection. Built and programmed from the ground up — competing at regional level and taking gold three times.",
-    tags: ["Robotics", "Sensors", "Hardware", "Code", "Arduino"],
-    image: "/images/placeholder-robot.jpg",
-    stats: {
-      label: "Gold Medals",
-      value: 3,
-      suffix: "×",
-    },
-  },
-  {
     title: "KhanateMUN",
     role: "Media Manager",
     scale: "Region-wide — participants from across Khorezm",

@@ -77,95 +77,94 @@ export const ContactCard = () => {
           className="max-w-4xl mx-auto space-y-12"
         >
           <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold tracking-tight">
-              Let&apos;s connect.
+            <div className="text-xs font-mono text-primary uppercase tracking-widest flex items-center justify-center gap-1.5">
+              <span>GET IN TOUCH</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-heading font-extrabold text-white tracking-tight">
+              Let&apos;s build together.
             </h1>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed italic">
-              &quot;Open to robotics collaborations, STEM projects, and new ideas. Based in Khiva, Uzbekistan — response within 48 hours.&quot;
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              Open to robotics collaborations, STEM projects, and ambitious engineering challenges. Based in Khiva, Uzbekistan.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="glass p-8 md:p-10 rounded-3xl border-white/10 space-y-6"
+              className="glass-card p-7 sm:p-9 rounded-3xl border border-white/10 space-y-6 shadow-2xl"
             >
-              <h3 className="text-xl font-heading font-bold mb-4">Send a Message</h3>
+              <h3 className="text-xl font-heading font-bold text-white">Send a Message</h3>
               
               {isSuccess ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center space-y-4 py-12 text-center"
+                  className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-6 rounded-2xl flex flex-col items-center text-center space-y-3"
                 >
-                  <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <CheckCircle2 className="text-green-500" size={32} />
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="text-xl font-bold">Message Sent!</h4>
-                    <p className="text-text-secondary text-sm">Thank you, Behruzbek will get back to you soon.</p>
-                  </div>
+                  <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+                  <div className="text-sm font-semibold text-white">Message Dispatched!</div>
+                  <div className="text-xs text-muted-foreground">Thank you for reaching out. I will respond to your transmission within 48 hours.</div>
                   <button 
                     onClick={() => setIsSuccess(false)}
-                    className="text-primary text-xs font-bold uppercase tracking-widest hover:underline pt-4"
+                    className="mt-2 text-xs font-mono text-emerald-400 underline hover:text-emerald-300"
                   >
                     Send another message
                   </button>
                 </motion.div>
               ) : (
                 <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Name</label>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Name</label>
                     <input
                       type="text"
                       name="name"
                       required
                       placeholder="Your Name"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
+                      className="w-full bg-[#090C12] border border-white/[0.08] rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 text-white placeholder-muted-foreground/40 text-sm transition-all"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Email</label>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Email</label>
                     <input
                       type="email"
                       name="email"
                       required
-                      placeholder="your@email.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
+                      placeholder="your.email@example.com"
+                      className="w-full bg-[#090C12] border border-white/[0.08] rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 text-white placeholder-muted-foreground/40 text-sm transition-all"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-text-muted ml-1">Message</label>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Message</label>
                     <textarea
                       name="message"
                       required
                       rows={4}
-                      placeholder="How can we collaborate?"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all resize-none"
+                      placeholder="How can we collaborate on robotics or software?"
+                      className="w-full bg-[#090C12] border border-white/[0.08] rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 text-white placeholder-muted-foreground/40 text-sm transition-all resize-none"
                     />
                   </div>
 
                   {error && (
-                    <p className="text-red-500 text-xs italic ml-1">{error}</p>
+                    <p className="text-rose-400 text-xs bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">{error}</p>
                   )}
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-primary text-white font-semibold text-xs py-3.5 rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center space-x-2 group disabled:opacity-50 shadow-[0_0_20px_rgba(79,140,255,0.3)] hover:scale-[1.02] active:scale-[0.98]"
                   >
                     {isSubmitting ? (
                       <>
-                        <span>Sending...</span>
-                        <Loader2 size={18} className="animate-spin" />
+                        <span>Transmitting...</span>
+                        <Loader2 size={16} className="animate-spin" />
                       </>
                     ) : (
                       <>
-                        <span>Send Message</span>
-                        <SendHorizontal size={18} className="group-hover:translate-x-1 transition-transform" />
+                        <span>Transmit Message</span>
+                        <SendHorizontal size={16} className="group-hover:translate-x-1 transition-transform" />
                       </>
                     )}
                   </button>
@@ -173,77 +172,90 @@ export const ContactCard = () => {
               )}
             </motion.div>
 
-            {/* Social Links */}
+            {/* Social Links & Telemetry */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="space-y-8"
+              className="space-y-4"
             >
-              <div className="glass p-8 md:p-10 rounded-3xl border-white/10 space-y-8">
-                <h3 className="text-xl font-heading font-bold">Channels</h3>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Email */}
-                  <a
-                    href={`mailto:${personal.email}`}
-                    className="group flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 text-center"
-                  >
-                    <Mail className="text-primary mb-3" size={24} />
-                    <span className="text-[10px] font-mono text-text-secondary group-hover:text-primary transition-colors break-all">
-                      {personal.email}
-                    </span>
-                  </a>
-
-                  {/* Telegram */}
-                  <a
-                    href="https://t.me/Behruzbek7090"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#22D3EE]/50 hover:bg-[#22D3EE]/5 transition-all duration-300 text-center"
-                  >
-                    <TelegramIcon className="text-[#22D3EE] mb-3 w-6 h-6" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-text-secondary group-hover:text-[#22D3EE] transition-colors">
-                      Telegram
-                    </span>
-                  </a>
-
-                  {/* GitHub */}
-                  <a
-                    href={personal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-center"
-                  >
-                    <GitHubIcon className="text-white mb-3 w-6 h-6" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-text-secondary group-hover:text-white transition-colors">
-                      GitHub
-                    </span>
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                    href={personal.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#0077B5]/50 hover:bg-[#0077B5]/5 transition-all duration-300 text-center"
-                  >
-                    <LinkedInIcon className="text-[#0077B5] mb-3 w-6 h-6" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-text-secondary group-hover:text-[#0077B5] transition-colors">
-                      LinkedIn
-                    </span>
-                  </a>
-                </div>
-
-                <div className="pt-8 border-t border-white/5 flex flex-col items-center space-y-2">
-                  <p className="text-xs text-text-muted uppercase tracking-[0.2em]">
-                    Located in
-                  </p>
-                  <div className="flex items-center space-x-2 text-sm font-medium">
-                    <span>{personal.location}</span>
-                    <ExternalLink size={14} className="text-text-muted" />
+              <div className="glass-card p-6 sm:p-7 rounded-3xl border border-white/10 space-y-4 shadow-xl">
+                <span className="text-xs font-mono uppercase tracking-widest text-primary">Direct Telemetry</span>
+                <div className="space-y-3 font-mono text-xs">
+                  <div className="flex justify-between items-center py-2 border-b border-white/[0.06]">
+                    <span className="text-muted-foreground">Location</span>
+                    <span className="text-white font-sans font-medium">{personal.location}</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/[0.06]">
+                    <span className="text-muted-foreground">Response Window</span>
+                    <span className="text-emerald-400 font-semibold">&lt; 48 Hours</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-muted-foreground">Status</span>
+                    <span className="text-primary font-semibold">Active &bull; Accepting Collaborations</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Channel Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-primary/40 flex items-center space-x-3 transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="block text-[10px] font-mono text-muted-foreground uppercase">Email</span>
+                    <span className="text-xs font-medium text-white truncate block">Direct Transmission</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://t.me/Behruzbek7090"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-cyan-400/40 flex items-center space-x-3 transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                    <TelegramIcon className="w-4 h-4" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="block text-[10px] font-mono text-muted-foreground uppercase">Telegram</span>
+                    <span className="text-xs font-medium text-white truncate block">@Behruzbek7090</span>
+                  </div>
+                </a>
+
+                <a
+                  href={personal.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-white/30 flex items-center space-x-3 transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                    <GitHubIcon className="w-4 h-4" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="block text-[10px] font-mono text-muted-foreground uppercase">GitHub</span>
+                    <span className="text-xs font-medium text-white truncate block">Repositories</span>
+                  </div>
+                </a>
+
+                <a
+                  href={personal.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-blue-500/40 flex items-center space-x-3 transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                    <LinkedInIcon className="w-4 h-4" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="block text-[10px] font-mono text-muted-foreground uppercase">LinkedIn</span>
+                    <span className="text-xs font-medium text-white truncate block">Professional</span>
+                  </div>
+                </a>
               </div>
             </motion.div>
           </div>

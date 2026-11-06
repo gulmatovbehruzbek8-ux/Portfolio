@@ -13,8 +13,12 @@ export const AboutHero = () => {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F] via-[#0B0B0F]/40 to-transparent" />
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Top shadow/gradient specifically for navbar contrast */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0B0B0F]/90 via-[#0B0B0F]/60 to-transparent z-10 pointer-events-none" />
+      
+      {/* Bottom fade into profile section */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F] via-[#0B0B0F]/50 to-transparent" />
+      <div className="absolute inset-0 bg-black/35" />
       
       <div className="container mx-auto px-6 h-full flex items-end pb-12 relative z-10">
         <motion.div

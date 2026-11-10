@@ -45,14 +45,18 @@ export const ProjectsList = () => {
             >
               {/* Image Side */}
               <div className="w-full lg:w-1/2 group">
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#090C12]">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#07090E] flex items-center justify-center">
                   <Image 
                     src={project.image} 
                     alt={project.title} 
                     fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className={project.image.includes("KhanteMUN") || project.image.includes("edexcel")
+                      ? "object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                      : "object-cover group-hover:scale-105 transition-transform duration-700"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  {!project.image.includes("KhanteMUN") && !project.image.includes("edexcel") && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  )}
                 </div>
               </div>
 

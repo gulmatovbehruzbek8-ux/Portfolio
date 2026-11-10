@@ -49,7 +49,7 @@ export const activities: Activity[] = [
     achievement: "🥇 1,000,000 UZS Prize Winner",
     description: "Competed in multiple hackathons, including the regional AI Alliance hackathon, and took part in StartupFest where our team was awarded a 1,000,000 UZS cash prize for technical project innovation and live execution.",
     tags: ["Hackathon", "StartupFest", "AI Alliance", "Robotics", "Innovation"],
-    image: "/images/entrance.jpg",
+    image: "/images/startupfest.jpg",
   },
   {
     title: "Silk Road University Fair Delegation",
@@ -59,7 +59,7 @@ export const activities: Activity[] = [
     achievement: "International Higher Education Delegate",
     description: "Represented Presidential School in Khiva at the Silk Road International Higher Education Fair in Tashkent. Engaged directly with international admissions delegations from institutions including University of Toronto, University of Miami, and University of South Florida.",
     tags: ["Higher Education", "International Relations", "Academic Leadership"],
-    image: "/images/School.jpg",
+    image: "/images/silk-road-fair.jpg",
   },
   {
     title: "Engineering Club, KhivaPS",

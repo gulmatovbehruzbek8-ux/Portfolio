@@ -85,13 +85,15 @@ const ActivityImage = ({
   return (
     <div
       onClick={() => onImageClick?.(image)}
-      className="relative w-full h-full cursor-pointer group/img"
+      className="relative w-full h-full cursor-pointer group/img flex items-center justify-center bg-[#07090E]"
     >
       <Image 
         src={image} 
         alt={title} 
         fill 
-        className="object-cover group-hover/img:scale-105 transition-transform duration-700"
+        className={image.includes("KhanteMUN") || image.includes("edexcel")
+          ? "object-contain p-4 group-hover/img:scale-105 transition-transform duration-700"
+          : "object-cover group-hover/img:scale-105 transition-transform duration-700"}
       />
       <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 flex items-center justify-center transition-all">
         <Maximize2 className="w-5 h-5 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />

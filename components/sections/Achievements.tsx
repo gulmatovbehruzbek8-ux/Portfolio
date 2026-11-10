@@ -63,14 +63,18 @@ export const Achievements = () => {
               </div>
 
               {item.image ? (
-                <div className="relative h-36 bg-[#0B0B0F] border-t border-white/[0.08] overflow-hidden">
+                <div className="relative h-40 bg-[#07090E] border-t border-white/[0.08] overflow-hidden flex items-center justify-center">
                   <Image 
                     src={item.image} 
                     alt={item.title} 
                     fill 
-                    className="object-cover group-hover:scale-105 transition-all duration-500"
+                    className={item.image.includes("KhanteMUN") || item.image.includes("edexcel")
+                      ? "object-contain p-3 group-hover:scale-105 transition-all duration-500"
+                      : "object-cover group-hover:scale-105 transition-all duration-500"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/80 via-transparent to-transparent pointer-events-none" />
+                  {!item.image.includes("KhanteMUN") && !item.image.includes("edexcel") && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/80 via-transparent to-transparent pointer-events-none" />
+                  )}
                 </div>
               ) : (
                 <div className="h-20 bg-white/[0.01] border-t border-white/[0.05] flex items-center justify-center text-[11px] font-mono text-muted-foreground/60 italic">

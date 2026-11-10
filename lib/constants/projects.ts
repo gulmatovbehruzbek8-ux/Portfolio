@@ -27,7 +27,7 @@ export const projects: Project[] = [
     role: "Co-Developer (Hardware)",
     tags: ["Arduino", "Sensors", "Hardware", "Robotics", "Circuit Design"],
     github: "https://github.com/gulmatovbehruzbek8-ux",
-    image: "/images/engineering club.jpg",
+    image: "/images/line-tracking-robot.jpg",
   },
   {
     title: "Python Olympiad & AI Toolkit",
@@ -36,6 +36,6 @@ export const projects: Project[] = [
     role: "Solo Developer",
     tags: ["Python", "Algorithms", "AI", "Competitive Programming"],
     github: "https://github.com/gulmatovbehruzbek8-ux",
-    image: "/images/School.jpg",
+    image: "/images/ai-alliance.jpg",
   },
 ];

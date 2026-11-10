@@ -71,7 +71,7 @@ export const AboutHeader = () => {
           </p>
 
           {/* Location & Specs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-muted-foreground pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-muted-foreground pt-2">
             <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06]">
               <MapPin className="w-3.5 h-3.5 text-primary" /> {personal.location}
             </span>
@@ -80,6 +80,9 @@ export const AboutHeader = () => {
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06]">
               <Award className="w-3.5 h-3.5 text-amber-400" /> 3&times; Regional Gold
+            </span>
+            <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06]">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> IELTS 8.0 &bull; IGCSE 9s
             </span>
           </div>
         </motion.div>

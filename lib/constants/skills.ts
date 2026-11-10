@@ -8,21 +8,21 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Robotics & Hardware",
     icon: "🤖",
-    skills: ["Sensor Integration", "Robot Building", "Circuit Design", "Arduino"],
+    skills: ["Sensor Integration", "Robot Building", "Circuit Design", "Arduino & C++"],
   },
   {
     category: "Physics & Science",
     icon: "⚛️",
-    skills: ["Applied Mechanics", "Electronics", "Experimental Physics"],
+    skills: ["Applied Mechanics", "Electronics", "Experimental Physics", "IGCSE Physics (9)"],
   },
   {
     category: "AI & ML Tools",
     icon: "🧠",
-    skills: ["AI-Assisted Development", "Prompt Engineering", "ML Concepts"],
+    skills: ["AI-Assisted Development", "Prompt Engineering", "Hackathon Prototyping", "ML Workflows"],
   },
   {
-    category: "Frontend Development",
-    icon: "🌐",
-    skills: ["HTML", "CSS", "JavaScript"],
+    category: "Software & Algorithms",
+    icon: "💻",
+    skills: ["Python", "Algorithms", "Data Structures", "Git & GitHub", "IGCSE CS (9)"],
   },
 ];

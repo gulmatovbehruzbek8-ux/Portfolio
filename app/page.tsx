@@ -1,6 +1,7 @@
 "use client";
 
 import { Hero } from "@/components/sections/Hero";
+import { HardwareTelemetry } from "@/components/sections/HardwareTelemetry";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,39 +19,40 @@ import {
   Zap, 
   Compass,
   Layers,
-  Activity as ActivityIcon
+  Activity as ActivityIcon,
+  ExternalLink
 } from "lucide-react";
 import { GitHubIcon } from "@/components/shared/Icons";
 
 export default function Home() {
   const highlights = [
     {
+      icon: <Award className="w-5 h-5 text-amber-400" />,
+      title: "Edexcel Triple 9",
+      desc: "CS, Physics & Mathematics",
+      meta: "Highest Grade 9 Distinctions",
+      badge: "Academics",
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-cyan-400" />,
+      title: "IELTS Band 8.0",
+      desc: "Reading 9.0 · Listening 8.5",
+      meta: "C1/C2 Academic English",
+      badge: "Language",
+    },
+    {
       icon: <Trophy className="w-5 h-5 text-amber-400" />,
       title: "3× Regional Gold",
       desc: "Line Tracking Robot Champion",
-      meta: "Khorezm Region",
-      badge: "Competition",
+      meta: "Autonomous 7-Sensor Hardware",
+      badge: "Robotics",
     },
     {
-      icon: <Cpu className="w-5 h-5 text-primary" />,
-      title: "7-Sensor Array",
-      desc: "Custom Hardware & Wiring Design",
-      meta: "Analog & Digital Integration",
-      badge: "Engineering",
-    },
-    {
-      icon: <Award className="w-5 h-5 text-cyan-400" />,
-      title: "Presidential Scholar",
-      desc: "Presidential School in Khiva",
-      meta: "Top 1% Academic Selection",
-      badge: "9th Grade",
-    },
-    {
-      icon: <Code2 className="w-5 h-5 text-emerald-400" />,
-      title: "AI & Algorithms",
-      desc: "Competitive Python Toolkit",
-      meta: "Olympiad Problem Solving",
-      badge: "Software",
+      icon: <Cpu className="w-5 h-5 text-emerald-400" />,
+      title: "1M UZS Winner",
+      desc: "StartupFest & AI Hackathons",
+      meta: "AI Alliance & Tech Pitching",
+      badge: "Innovation",
     },
   ];
 
@@ -150,44 +152,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Schematic Visual Card */}
+            {/* Right Interactive Telemetry Console */}
             <div className="lg:col-span-5 relative">
-              <div className="rounded-2xl bg-[#090C12] border border-white/10 p-6 space-y-5 font-mono text-xs shadow-2xl relative overflow-hidden">
-                <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-                  <span className="text-muted-foreground flex items-center gap-2">
-                    <ActivityIcon className="w-4 h-4 text-emerald-400" /> CALIBRATION TELEMETRY
-                  </span>
-                  <span className="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
-                    ACTIVE
-                  </span>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center text-muted-foreground">
-                    <span>SENSOR ARRAY [S1 - S7]</span>
-                    <span className="text-white font-mono font-bold">1110111 (LOCKED)</span>
-                  </div>
-                  <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
-                    <div className="bg-gradient-to-r from-primary to-cyan-400 h-full w-[94%]" />
-                  </div>
-                  <div className="flex justify-between text-[10px] text-muted-foreground">
-                    <span>Loop Frequency: 2.4 kHz</span>
-                    <span>Deviation: &plusmn;0.04 mm</span>
-                  </div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                  <span className="text-[10px] text-muted-foreground uppercase">Chassis Platform</span>
-                  <p className="text-xs text-white font-sans">
-                    Custom lightweight chassis with balanced center of gravity for maximum velocity through 90&deg; hairpins.
-                  </p>
-                </div>
-
-                <div className="pt-2 text-[10px] text-muted-foreground/60 border-t border-white/[0.06] flex items-center justify-between">
-                  <span>DEPLOYMENT: KHOREZM REGIONAL</span>
-                  <span className="text-amber-400 font-bold">GOLD × 3</span>
-                </div>
-              </div>
+              <HardwareTelemetry />
             </div>
           </div>
         </div>
@@ -253,15 +220,28 @@ export default function Home() {
               </div>
 
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-xs font-mono text-muted-foreground hover:text-white transition-colors"
-                >
-                  <GitHubIcon className="w-3.5 h-3.5" />
-                  <span>GitHub Repository</span>
-                </a>
+                <div className="flex items-center gap-4">
+                  {proj.liveUrl && (
+                    <a
+                      href={proj.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-1.5 text-xs font-mono text-primary hover:text-white transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Live Platform</span>
+                    </a>
+                  )}
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs font-mono text-muted-foreground hover:text-white transition-colors"
+                  >
+                    <GitHubIcon className="w-3.5 h-3.5" />
+                    <span>Repository</span>
+                  </a>
+                </div>
                 <Link
                   href="/projects"
                   className="p-2 rounded-xl bg-white/[0.03] border border-white/[0.08] group-hover:bg-primary group-hover:text-white transition-all"

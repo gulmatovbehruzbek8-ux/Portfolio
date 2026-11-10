@@ -80,10 +80,10 @@ export const Hero = () => {
   const techPills = [
     "Robotics Engineering",
     "Sensor Integration",
-    "Circuit Design",
     "Python & AI",
-    "Physics Olympiad",
-    "Arduino & C++",
+    "Edexcel Triple 9",
+    "IELTS 8.0",
+    "Photography & Media",
   ];
 
   return (

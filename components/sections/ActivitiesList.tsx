@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { activities } from "@/lib/constants/activities";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Sparkles, Trophy, CheckCircle2, RefreshCw, Users, Globe2, Compass } from "lucide-react";
+import { Sparkles, Trophy, CheckCircle2, RefreshCw, Users, Globe2, Compass, X, Maximize2 } from "lucide-react";
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -39,34 +39,70 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
   );
 };
 
-const ActivityImage = ({ image, title }: { image: string | string[]; title: string }) => {
+const ActivityImage = ({
+  image,
+  title,
+  onImageClick,
+}: {
+  image: string | string[];
+  title: string;
+  onImageClick?: (src: string) => void;
+}) => {
   if (Array.isArray(image)) {
     return (
       <div className="grid grid-cols-2 grid-rows-2 gap-2 h-full p-2">
-        <div className="relative row-span-2 rounded-2xl overflow-hidden">
-          <Image src={image[0]} alt={title} fill className="object-cover" />
+        <div
+          onClick={() => onImageClick?.(image[0])}
+          className="relative row-span-2 rounded-2xl overflow-hidden cursor-pointer group/img"
+        >
+          <Image src={image[0]} alt={title} fill className="object-cover group-hover/img:scale-105 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 flex items-center justify-center transition-all">
+            <Maximize2 className="w-5 h-5 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+          </div>
         </div>
-        <div className="relative rounded-2xl overflow-hidden">
-          <Image src={image[1]} alt={title} fill className="object-cover" />
+        <div
+          onClick={() => onImageClick?.(image[1])}
+          className="relative rounded-2xl overflow-hidden cursor-pointer group/img"
+        >
+          <Image src={image[1]} alt={title} fill className="object-cover group-hover/img:scale-105 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 flex items-center justify-center transition-all">
+            <Maximize2 className="w-4 h-4 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+          </div>
         </div>
-        <div className="relative rounded-2xl overflow-hidden">
-          <Image src={image[2] || image[0]} alt={title} fill className="object-cover" />
+        <div
+          onClick={() => onImageClick?.(image[2] || image[0])}
+          className="relative rounded-2xl overflow-hidden cursor-pointer group/img"
+        >
+          <Image src={image[2] || image[0]} alt={title} fill className="object-cover group-hover/img:scale-105 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 flex items-center justify-center transition-all">
+            <Maximize2 className="w-4 h-4 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <Image 
-      src={image} 
-      alt={title} 
-      fill 
-      className="object-cover group-hover:scale-105 transition-transform duration-700"
-    />
+    <div
+      onClick={() => onImageClick?.(image)}
+      className="relative w-full h-full cursor-pointer group/img"
+    >
+      <Image 
+        src={image} 
+        alt={title} 
+        fill 
+        className="object-cover group-hover/img:scale-105 transition-transform duration-700"
+      />
+      <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 flex items-center justify-center transition-all">
+        <Maximize2 className="w-5 h-5 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+      </div>
+    </div>
   );
 };
 
 export const ActivitiesList = () => {
+  const [activePhoto, setActivePhoto] = useState<string | null>(null);
+
   return (
     <section className="pt-32 pb-24 relative overflow-hidden">
       {/* Subtle Circuit Background */}
@@ -119,7 +155,7 @@ export const ActivitiesList = () => {
               {/* Image Side */}
               <div className="w-full lg:w-1/2 group">
                 <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#090C12]">
-                  <ActivityImage image={activity.image} title={activity.title} />
+                  <ActivityImage image={activity.image} title={activity.title} onImageClick={setActivePhoto} />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/80 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
               </div>
@@ -193,6 +229,48 @@ export const ActivitiesList = () => {
           ))}
         </div>
       </div>
+
+      {/* Fullscreen Photo Lightbox Modal */}
+      <AnimatePresence>
+        {activePhoto && (
+          <div
+            onClick={() => setActivePhoto(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-md cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl max-h-[90vh] w-full rounded-3xl overflow-hidden border border-white/15 bg-[#090C12] shadow-2xl flex flex-col cursor-default"
+            >
+              <div className="flex items-center justify-between p-4 border-b border-white/10 z-10 bg-[#0B0B0F]/80 backdrop-blur">
+                <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+                  High-Resolution Asset Preview
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setActivePhoto(null)}
+                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Close photo preview"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative w-full h-[65vh] sm:h-[75vh] bg-black">
+                <Image
+                  src={activePhoto}
+                  alt="Full-resolution view"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

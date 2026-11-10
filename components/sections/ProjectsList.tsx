@@ -5,7 +5,7 @@ import { projects } from "@/lib/constants/projects";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { GitHubIcon } from "@/components/shared/Icons";
-import { Cpu, ArrowUpRight, CheckCircle2, Clock, Terminal } from "lucide-react";
+import { Cpu, ArrowUpRight, CheckCircle2, Clock, Terminal, ExternalLink } from "lucide-react";
 
 export const ProjectsList = () => {
   return (
@@ -96,7 +96,19 @@ export const ProjectsList = () => {
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.06] flex items-center gap-4">
+                <div className="pt-4 border-t border-white/[0.06] flex flex-wrap items-center gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-mono font-semibold hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_15px_rgba(79,140,255,0.3)]"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Live Platform</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                   <a
                     href={project.github}
                     target="_blank"

@@ -148,7 +148,15 @@ export const ContactCard = () => {
                   </div>
 
                   {error && (
-                    <p className="text-rose-400 text-xs bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">{error}</p>
+                    <div className="text-xs bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl space-y-1.5">
+                      <p className="text-rose-400">{error}</p>
+                      <a
+                        href={`mailto:${personal.email}?subject=Message%20from%20Portfolio`}
+                        className="inline-block text-primary hover:underline font-mono text-[11px]"
+                      >
+                        Send message directly via email client &rarr;
+                      </a>
+                    </div>
                   )}
 
                   <button

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { personal } from "@/lib/constants/personal";
 import Link from "next/link";
-import { ArrowRight, Cpu, Sparkles, Trophy, Award, Terminal, Compass, Layers } from "lucide-react";
+import { ArrowRight, Cpu, Sparkles, Trophy, Award, Terminal, Compass, Layers, Camera } from "lucide-react";
 import { GitHubIcon } from "@/components/shared/Icons";
 
 const SystemTelemetryCard = () => {
@@ -24,38 +24,38 @@ const SystemTelemetryCard = () => {
 
       {/* Main Spec Grid */}
       <div className="py-6 space-y-4 font-mono text-xs">
+        <div className="flex items-start justify-between p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-cyan-400/30 transition-all">
+          <div className="space-y-1">
+            <span className="text-[10px] text-muted-foreground tracking-wider uppercase">Language &amp; Academics</span>
+            <p className="text-sm font-sans font-semibold text-white flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-cyan-400" /> IELTS Band 8.0 (Academic)
+            </p>
+          </div>
+          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+            Band 8.0 📜
+          </span>
+        </div>
+
+        <div className="flex items-start justify-between p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-emerald-400/30 transition-all">
+          <div className="space-y-1">
+            <span className="text-[10px] text-muted-foreground tracking-wider uppercase">School Leadership</span>
+            <p className="text-sm font-sans font-semibold text-white flex items-center gap-1.5">
+              <Camera className="w-4 h-4 text-emerald-400" /> School Media Team Member
+            </p>
+          </div>
+          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+            Photographer 📸
+          </span>
+        </div>
+
         <div className="flex items-start justify-between p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-primary/30 transition-all">
-          <div className="space-y-1">
-            <span className="text-[10px] text-muted-foreground tracking-wider uppercase">Lead Specialty</span>
-            <p className="text-sm font-sans font-semibold text-white flex items-center gap-1.5">
-              <Cpu className="w-4 h-4 text-primary" /> Robotics & Hardware Systems
-            </p>
-          </div>
-          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
-            Active
-          </span>
-        </div>
-
-        <div className="flex items-start justify-between p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-accent-gold/30 transition-all">
-          <div className="space-y-1">
-            <span className="text-[10px] text-muted-foreground tracking-wider uppercase">Flagship Achievement</span>
-            <p className="text-sm font-sans font-semibold text-white flex items-center gap-1.5">
-              <Trophy className="w-4 h-4 text-[#EAB308]" /> 3&times; Regional Gold Medalist
-            </p>
-          </div>
-          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#EAB308]/10 text-[#EAB308] border border-[#EAB308]/20">
-            Gold 🥇
-          </span>
-        </div>
-
-        <div className="flex items-start justify-between p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.04]">
           <div className="space-y-1">
             <span className="text-[10px] text-muted-foreground tracking-wider uppercase">Institution</span>
             <p className="text-sm font-sans font-semibold text-white flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-cyan-400" /> {personal.school}
+              <Award className="w-4 h-4 text-primary" /> {personal.school}
             </p>
           </div>
-          <span className="text-[11px] font-mono text-muted-foreground">
+          <span className="text-[11px] font-mono text-muted-foreground px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06]">
             {personal.grade}
           </span>
         </div>
